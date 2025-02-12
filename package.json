@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 4200 --no-hmr --host 0.0.0.0 --disable-host-check",
+    "start": "ng serve --port 4200 --no-hmr",
     "build": "ng build --configuration=production",
-    "postinstall": "ng build --configuration=production",
+    "postinstall": "ng build --configuration=production --force",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
