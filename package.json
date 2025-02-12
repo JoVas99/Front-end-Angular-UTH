@@ -5,7 +5,6 @@
     "ng": "ng",
     "start": "ng serve --port 4200 --no-hmr",
     "build": "ng build --configuration=production",
-    "preinstall": "rm -rf node_modules package-lock.json && npm cache clean",
     "postinstall": "ng build --configuration=production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
