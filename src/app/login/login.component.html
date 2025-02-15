@@ -16,10 +16,11 @@
         <label class="titulo">Iniciar Sesión</label>
         <div class="formulario">
           <div class="usuario">
-            <label class="form-label" for="nombre_usuario">Usuario</label>
-            <input class="form-control" type="text" id="nombre_usuario" formControlName="nombre_usuario">
-            <div *ngIf="nombre_usuario?.invalid && (nombre_usuario?.dirty || nombre_usuario?.touched)">
-              <small class="badge text-bg-danger" *ngIf="nombre_usuario?.errors?.['required']">El nombre de usuario es obligatorio</small>
+            <label class="form-label" for="correo">Usuario</label>
+            <input class="form-control" type="text" id="correo" formControlName="correo">
+            <div *ngIf="correo?.invalid && (correo?.dirty || correo?.touched)">
+              <small class="badge text-bg-danger" *ngIf="correo?.errors?.['required']">El nombre de usuario es obligatorio</small>
+              <small class="badge text-bg-danger" *ngIf="correo?.errors?.['email']">Debe ser un correo</small>
               <!-- <small class="badge text-bg-danger" *ngIf="nombre_usuario?.errors?.['pattern']">La contraseña debe tener al menos 8 caracteres, una mayuscula, una minuscula y un numero</small> -->
             </div>
           </div>

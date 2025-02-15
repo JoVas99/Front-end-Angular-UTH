@@ -23,7 +23,7 @@ export class LoginComponent {
 
   constructor(private http:HttpClient, private router:Router){
     this.formulario = new FormGroup({
-      nombre_usuario: new FormControl('',[Validators.required]),
+      correo: new FormControl('',[Validators.required, Validators.email]),
       password: new FormControl('',[Validators.required,Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[A-Za-z\\d@$!%*?&_]{8,}$')]),
     })
   }
@@ -34,7 +34,7 @@ export class LoginComponent {
       //enviar los datos del usuario y encadenar la segunda
       //peticion
       this.enviarDatos(formUsuario);
-      this.router.navigate(['/citas-medicas']);
+      this.router.navigate(['/estudiante']);
     }
     else{
       Swal.fire({
@@ -95,8 +95,8 @@ export class LoginComponent {
     });
   }
 
-  get nombre_usuario(){
-    return this.formulario.get('nombre_usuario')
+  get correo(){
+    return this.formulario.get('correo')
   }
   get password(){
     return this.formulario.get('password')
