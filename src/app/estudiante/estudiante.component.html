@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro</title>
+</head>
+<body>
+  <div class="contenedor">
+    <div class="izquierda">
+      <img class="imagen" src="https://cdn-icons-png.freepik.com/256/1470/1470423.png?semt=ais_hybrid"/>
+    </div>
+    <div class="centro"></div>
+    <div class="derecha">
+      <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+        <label class="titulo">Registrar a un estudiante</label>
+        <div class="formulario">
+          <div class="nombre">
+            <label class="form-label" for="nombre_del_paciente">Nombre</label>
+            <input class="form-control" type="text" id="nombre_del_paciente" formControlName = "nombre">
+            <div *ngIf="nombre?.invalid && (nombre?.dirty || nombre?.touched)">
+              <small class="badge text-bg-danger" *ngIf="nombre?.errors?.['required']">El nombre es obligatorio</small>
+              <small class="badge text-bg-danger" *ngIf="nombre?.errors?.['minlength']">Debe tener al menos 3 caracteres</small>
+            </div>
+          </div>
+          <div class="apellido">
+            <label class="form-label" for="apellido_del_paciente">Apellido</label>
+            <input class="form-control" type="text" id="apellido_del_paciente" formControlName="apellido">
+            <div *ngIf="apellido?.invalid && (apellido?.dirty || apellido?.touched)">
+              <small class="badge text-bg-danger" *ngIf="apellido?.errors?.['required']">El apellido es obligatorio</small>
+              <small class="badge text-bg-danger" *ngIf="apellido?.errors?.['minlength']">Debe tener al menos 3 caracteres</small>
+            </div>
+          </div>
+          <div class="edad">
+            <label class="form-label" for="edad">Edad</label>
+            <input class="form-control" type="date" id="edad" formControlName="edad">
+            <div *ngIf="edad?.invalid && (edad?.dirty || edad?.touched)">
+              <small class="badge text-bg-danger" *ngIf="edad?.errors?.['required']">La edad es obligatoria</small>
+              <small class="badge text-bg-danger" *ngIf="edad?.errors?.['pattern']">Debe ingresar solo numeros</small>
+            </div>
+          </div>
+          <div class="genero">
+            <label class="form-label" for="genero">Seleccione el genero</label>
+            <!-- <input class="form-control" type="date" id="genero" formControlName="genero"> -->
+            <select class="form-select" aria-label="Default select example" formControlName="genero">
+              <option value="" selected>Abra este menu de selección</option>
+              <option value="masculino">Masculino</option>
+              <option value="femenino">Femenino</option>
+              <option value="otro">Otro</option>
+            </select>
+            <div *ngIf="genero?.invalid && (genero?.dirty || genero?.touched)">
+              <small class="badge text-bg-danger" *ngIf="genero?.errors?.['required']">El genero es obligatorio</small>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary m-1" [disabled]="formulario.invalid">Siguiente</button>
+      </form>
+    </div>
+  </div>
+  </body>
+</html>
+

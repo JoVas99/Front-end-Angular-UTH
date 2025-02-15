@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro</title>
+</head>
+<body>
+  <div class="contenedor">
+    <div class="izquierda">
+      <img class="imagen" src="https://cdn-icons-png.freepik.com/256/1470/1470423.png?semt=ais_hybrid"/>
+    </div>
+    <div class="centro"></div>
+    <div class="derecha">
+      <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+        <label class="titulo">Registrate</label>
+        <div class="formulario">
+          <div class="usuario">
+            <label class="form-label" for="correo">Usuario</label>
+            <input class="form-control" type="text" id="correo" formControlName="correo" readonly>
+            <div *ngIf="correo?.invalid && (correo?.dirty || correo?.touched)">
+              <small class="badge text-bg-danger" *ngIf="correo?.errors?.['required']">El correo es obligatorio</small>
+              <small class="badge text-bg-danger" *ngIf="correo?.errors?.['email']">Debe ser un correo</small>
+              <!-- <small class="badge text-bg-danger" *ngIf="nombre_usuario?.errors?.['pattern']">La contraseña debe tener al menos 8 caracteres, una mayuscula, una minuscula y un numero</small> -->
+            </div>
+          </div>
+          <div class="password">
+            <label class="form-label" for="passwword">Contraseña</label>
+            <input class="form-control" type="password" id="passwword" formControlName="password">
+            <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+              <small class="badge text-bg-danger" *ngIf="password?.errors?.['required']">La contraseña es obligatoria</small>
+              <small class="badge text-bg-danger" *ngIf="password?.errors?.['pattern']">La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un número</small>
+            </div>
+          </div>
+          <div class="password">
+            <label class="form-label" for="repetir_password">Repetir Contraseña</label>
+            <input class="form-control" type="password" id="repetir_password" formControlName="repetir_password">
+            <div *ngIf="repetir_password?.invalid && (repetir_password?.dirty || repetir_password?.touched)">
+              <small class="badge text-bg-danger" *ngIf="repetir_password?.errors?.['required']">La contraseña es obligatoria</small>
+              <small class="badge text-bg-danger" *ngIf="repetir_password?.errors?.['pattern']">La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un número</small>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary m-1" [disabled]="formulario.invalid">Siguiente</button>
+      </form>
+    </div>
+  </div>
+  </body>
+</html>
+

@@ -1,0 +1,53 @@
+.contenedor{
+  display: flex;
+  align-items: flex-start;
+}
+.izquierda
+{
+  width:49%;
+  height: 92vh;
+  background-color:cyan;
+  padding: 10px;
+  overflow: hidden;
+}
+.centro{
+  width: 5px;
+  height: 92vh;
+  background-color: black;
+  padding: 10px;
+}
+.derecha
+{
+  width:49%;
+  height: 92vh;
+  background-color:white;
+  padding: 10px;
+}
+.imagen{
+  position:relative;
+  bottom: -40%;
+  right: 12%;
+}
+.titulo{
+  font-family: 'Times New Roman', Times, serif;
+  font-size:x-large;
+  font-weight: bold;
+  height: 10%;
+  width: 100%;
+  text-align: center;
+}
+.formulario{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.usuario{
+  width: 96%;
+  height: 10%;
+  margin: 2px;
+}
+.password{
+  width: 96%;
+  height: 10%;
+  margin: 2px;
+}
