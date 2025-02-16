@@ -1,0 +1,30 @@
+<div class="container">
+  <h2>📋 Lista de Estudiantes</h2>
+  <button class="btn btn-success" routerLink="/crear-estudiante">➕ Agregar Estudiante</button>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Edad</th>
+        <th>Género</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let estudiante of estudiantes; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ estudiante.nombre }}</td>
+        <td>{{ estudiante.apellido }}</td>
+        <td>{{ estudiante.edad }}</td>
+        <td>{{ estudiante.genero }}</td>
+        <td>
+          <button class="btn btn-primary" (click)="editarEstudiante(estudiante.id)">✏️ Editar</button>
+          <button class="btn btn-danger" (click)="eliminarEstudiante(estudiante.id)">🗑️ Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -33,7 +33,7 @@
           </div>
           <div class="edad">
             <label class="form-label" for="edad">Edad</label>
-            <input class="form-control" type="date" id="edad" formControlName="edad">
+            <input class="form-control" type="number" min="0" max="99" step="1" id="edad" formControlName="edad">
             <div *ngIf="edad?.invalid && (edad?.dirty || edad?.touched)">
               <small class="badge text-bg-danger" *ngIf="edad?.errors?.['required']">La edad es obligatoria</small>
               <small class="badge text-bg-danger" *ngIf="edad?.errors?.['pattern']">Debe ingresar solo numeros</small>
