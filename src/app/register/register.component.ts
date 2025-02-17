@@ -130,7 +130,8 @@ export class RegisterComponent implements OnInit {
         });
       },
       error: (error) => {
-        console.log("5");
+        console.log(datosConId);
+        console.log(error.error.message);
         Swal.fire({
           position: "top",
           icon: "error",
