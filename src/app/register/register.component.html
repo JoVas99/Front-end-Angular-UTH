@@ -42,8 +42,8 @@
           </div>
         </div>
         <div class="password">
-          <label for="rol">Rol:</label>
-          <select id="rol" formControlName="rol" required>
+          <label class="form-label" for="rol">Rol:</label>
+          <select class="form-select" id="rol" formControlName="rol" required>
             <option value="" disabled selected>Seleccione un rol</option>
             <option value="admin" *ngIf="userRole === 'admin'">Administrador</option>
             <option value="director" *ngIf="userRole === 'admin' || userRole === 'director'">Director</option>

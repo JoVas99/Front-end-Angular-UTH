@@ -104,7 +104,7 @@ export class RegisterComponent implements OnInit {
           position: "top",
           icon: "error",
           title: "Error al enviar los datos:" + error.error.message,
-          showConfirmButton: false,
+          showConfirmButton: true,
           timer: 1500
         });
       },
@@ -130,7 +130,7 @@ export class RegisterComponent implements OnInit {
           position: "top",
           icon: "error",
           title: "Error al enviar los datos adicionales:" + error.error.message,
-          showConfirmButton: false,
+          showConfirmButton: true,
           timer: 1500
         });
       },
