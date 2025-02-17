@@ -53,6 +53,7 @@ export class RegisterComponent implements OnInit {
           //enviar los datos del usuario y encadenar la segunda
           //peticion
           this.enviarDatos(this.formulario.value);
+          console.log(this.formulario.value);
         }else{
           console.log("1");
           Swal.fire({
