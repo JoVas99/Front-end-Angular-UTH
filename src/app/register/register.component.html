@@ -16,8 +16,8 @@
         <label class="titulo">Registrate</label>
         <div class="formulario">
           <div class="usuario">
-            <label class="form-label" for="correo">Usuario</label>
-            <input class="form-control" type="text" id="correo" formControlName="correo" readonly>
+            <label class="form-label" for="correo">Correo</label>
+            <input class="form-control" type="text" id="correo" formControlName="correo">
             <div *ngIf="correo?.invalid && (correo?.dirty || correo?.touched)">
               <small class="badge text-bg-danger" *ngIf="correo?.errors?.['required']">El correo es obligatorio</small>
               <small class="badge text-bg-danger" *ngIf="correo?.errors?.['email']">Debe ser un correo</small>

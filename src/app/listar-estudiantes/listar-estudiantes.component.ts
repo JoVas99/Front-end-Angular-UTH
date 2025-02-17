@@ -72,4 +72,8 @@ export class ListarEstudiantesComponent implements OnInit {
       }
     });
   }
+
+  crearEstudiante(){
+    this.router.navigate(['/crear-estudiante']);
+  }
 }

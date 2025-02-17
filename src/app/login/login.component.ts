@@ -20,6 +20,7 @@ interface LoginResponse {
 export class LoginComponent {
 
   formulario:FormGroup;
+  loading:boolean = false
 
   constructor(private http:HttpClient, private router:Router){
     this.formulario = new FormGroup({
@@ -30,11 +31,14 @@ export class LoginComponent {
 
   onSubmit(){
     if(this.formulario.valid){
+
+      this.loading = true //bloqueamos el formulario
+
       const formUsuario = this.formulario.value;
       //enviar los datos del usuario y encadenar la segunda
       //peticion
       this.enviarDatos(formUsuario);
-      this.router.navigate(['/listar-estudiante']);
+
     }
     else{
       Swal.fire({
@@ -54,43 +58,33 @@ export class LoginComponent {
         const token = response.token;
         // const jwt_decode = require('jwt-decode');
         // const decoded = jwt_decode(token);
-        const helper = new JwtHelperService();
-        const decodedToken = helper.decodeToken(token);
+        // const helper = new JwtHelperService();
+        // const decodedToken = helper.decodeToken(token);
         localStorage.setItem('token', token);
         // console.log(decodedToken);
-        const Toast = Swal.mixin({
-          toast: true,
+        // Mostrar mensaje de éxito
+        Swal.fire({
           position: "top-end",
+          icon: "success",
+          title: "Inicio de sesión exitoso",
           showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-            toast.onmouseenter = Swal.stopTimer;
-            toast.onmouseleave = Swal.resumeTimer;
-          }
+          timer: 1500
         });
-        Toast.fire({
-          icon: "info",
-          title: "Datos enviados"
-        });
+
+        // Redirigir solo después de que el token se haya guardado
+        this.router.navigate(['/listar-estudiante']);
       },
       error: (error) => {
         Swal.fire({
           position: "top",
           icon: "error",
-          title: "Error al enviar los datos:" + error,
+          title: "Error al enviar los datos:" + error.error.message,
           showConfirmButton: false,
           timer: 1500
         });
       },
       complete: () => {
-        // Swal.fire({
-        //   position: "top",
-        //   icon: "success",
-        //   title: "Datos enviados correctamente",
-        //   showConfirmButton: false,
-        //   timer: 1500
-        // });
+        this.loading = false;
       }
     });
   }
