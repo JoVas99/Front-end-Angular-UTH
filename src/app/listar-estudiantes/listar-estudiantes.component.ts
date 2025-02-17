@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../services/auth.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -12,11 +13,13 @@ import Swal from 'sweetalert2';
 })
 export class ListarEstudiantesComponent implements OnInit {
   estudiantes: any[] = [];
+  userRole: string | null = null;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router, private authService: AuthService) {}
 
   ngOnInit() {
     this.obtenerEstudiantes();
+    this.userRole = this.authService.getUserRole();
   }
 
   // Obtener estudiantes desde la API

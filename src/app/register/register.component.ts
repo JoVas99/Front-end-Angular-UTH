@@ -54,6 +54,7 @@ export class RegisterComponent implements OnInit {
           //peticion
           this.enviarDatos(this.formulario.value);
         }else{
+          console.log("1");
           Swal.fire({
             icon: 'error',
             title: 'Acceso denegado',
@@ -62,6 +63,7 @@ export class RegisterComponent implements OnInit {
         }
       }
       else{
+        console.log("2");
         Swal.fire({
           icon: 'error',
           title: 'Error',
@@ -70,6 +72,7 @@ export class RegisterComponent implements OnInit {
       }
     }
     else{
+      console.log("3");
       Swal.fire({
         icon: 'error',
         title: 'Formulario inválido',
@@ -100,12 +103,13 @@ export class RegisterComponent implements OnInit {
 
       },
       error: (error) => {
+        console.log("4");
         Swal.fire({
           position: "top",
           icon: "error",
           title: "Error al enviar los datos:" + error.error.message,
           showConfirmButton: true,
-          timer: 1500
+          timer: 4500
         });
       },
     });
@@ -126,12 +130,13 @@ export class RegisterComponent implements OnInit {
         });
       },
       error: (error) => {
+        console.log("5");
         Swal.fire({
           position: "top",
           icon: "error",
           title: "Error al enviar los datos adicionales:" + error.error.message,
           showConfirmButton: true,
-          timer: 1500
+          timer: 4500
         });
       },
     });

@@ -1,6 +1,8 @@
 <div class="container">
   <h2>📋 Lista de Estudiantes</h2>
-  <button class="btn btn-success" (click)="crearEstudiante()">➕ Agregar Estudiante</button>
+  <button *ngIf="userRole === 'admin' || userRole === 'director' || userRole === 'maestro'" class="btn btn-success" (click)="crearEstudiante()">
+    ➕ Agregar Estudiante
+  </button>
 
   <table class="table">
     <thead>
@@ -21,8 +23,12 @@
         <td>{{ estudiante.edad }}</td>
         <td>{{ estudiante.genero }}</td>
         <td>
-          <button class="btn btn-primary" (click)="editarEstudiante(estudiante.id)">✏️ Editar</button>
-          <button class="btn btn-danger" (click)="eliminarEstudiante(estudiante.id)">🗑️ Eliminar</button>
+          <button *ngIf="userRole === 'admin' || userRole === 'director' || userRole === 'maestro'" class="btn btn-primary" (click)="editarEstudiante(estudiante.id)">
+            ✏️ Editar
+          </button>
+          <button *ngIf="userRole === 'admin' || userRole === 'director' || userRole === 'maestro'" class="btn btn-danger" (click)="eliminarEstudiante(estudiante.id)">
+            🗑️ Eliminar
+          </button>
         </td>
       </tr>
     </tbody>
