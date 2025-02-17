@@ -117,7 +117,7 @@ export class RegisterComponent implements OnInit {
 
   // Método para enviar formData y el ID del usuario (segunda petición)
   enviarFormData(usuarioId: number, formData: any) {
-  const datosConId = { ...formData, usuario_id: usuarioId };
+  const datosConId = { ...formData, usuario_id: Number(usuarioId) };
 
     this.http.post('https://back-end-slim-uth-production.up.railway.app/estudiante', datosConId).subscribe({
       next: () => {
@@ -137,7 +137,6 @@ export class RegisterComponent implements OnInit {
           icon: "error",
           title: "Error al enviar los datos adicionales:" + error.error.message,
           showConfirmButton: true,
-          timer: 4500
         });
       },
     });
