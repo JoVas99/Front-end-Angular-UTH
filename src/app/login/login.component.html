@@ -33,8 +33,9 @@
             </div>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary m-1" [disabled]="loading">Siguiente</button>
-        {{ loading ? 'Cargando...' : 'Iniciar sesion'}}
+        <button type="submit" class="btn btn-primary m-1" [disabled]="loading">
+          {{ loading ? 'Cargando...' : 'Iniciar sesion'}}
+        </button>
       </form>
     </div>
   </div>
