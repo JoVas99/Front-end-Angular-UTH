@@ -115,13 +115,13 @@ export class RegisterComponent implements OnInit {
         });
       },
       complete: () => {
-        Swal.fire({
-          position: "top",
-          icon: "success",
-          title: "Datos enviados correctamente",
-          showConfirmButton: false,
-          timer: 1500
-        });
+        // Swal.fire({
+        //   position: "top",
+        //   icon: "success",
+        //   title: "Datos enviados correctamente",
+        //   showConfirmButton: false,
+        //   timer: 1500
+        // });
       }
     });
   }
@@ -158,13 +158,13 @@ export class RegisterComponent implements OnInit {
         });
       },
       complete: () => {
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "Datos guardados",
-          showConfirmButton: false,
-          timer: 1500
-        });
+        // Swal.fire({
+        //   position: "top-end",
+        //   icon: "success",
+        //   title: "Datos guardados",
+        //   showConfirmButton: false,
+        //   timer: 1500
+        // });
       }
     });
   }

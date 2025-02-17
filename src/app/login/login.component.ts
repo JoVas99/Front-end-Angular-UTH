@@ -34,7 +34,7 @@ export class LoginComponent {
       //enviar los datos del usuario y encadenar la segunda
       //peticion
       this.enviarDatos(formUsuario);
-      this.router.navigate(['/estudiante']);
+      this.router.navigate(['/listar-estudiante']);
     }
     else{
       Swal.fire({
@@ -84,13 +84,13 @@ export class LoginComponent {
         });
       },
       complete: () => {
-        Swal.fire({
-          position: "top",
-          icon: "success",
-          title: "Datos enviados correctamente",
-          showConfirmButton: false,
-          timer: 1500
-        });
+        // Swal.fire({
+        //   position: "top",
+        //   icon: "success",
+        //   title: "Datos enviados correctamente",
+        //   showConfirmButton: false,
+        //   timer: 1500
+        // });
       }
     });
   }
