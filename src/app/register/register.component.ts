@@ -126,7 +126,7 @@ export class RegisterComponent implements OnInit {
           title: 'Registro exitoso',
           text: 'El estudiante ha sido registrado correctamente.',
         }).then(() => {
-          this.router.navigate(['/listar-estudiantes']);
+          this.router.navigate(['/listar-estudiante']);
         });
       },
       error: (error) => {

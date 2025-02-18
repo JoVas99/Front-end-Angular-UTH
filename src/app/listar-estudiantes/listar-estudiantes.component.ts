@@ -43,7 +43,7 @@ export class ListarEstudiantesComponent implements OnInit {
   }
 
   // Eliminar estudiante con confirmación
-  eliminarEstudiante(id: number) {
+  eliminarEstudiante(id: number, usuario_id: number) {
     Swal.fire({
       title: "Esta seguro de eliminar el estudiante?",
       text: "No podra revertir esta accion!",
@@ -54,7 +54,7 @@ export class ListarEstudiantesComponent implements OnInit {
       confirmButtonText: "Si, eliminalo!"
     }).then((result) => {
       if (result.isConfirmed) {
-        this.http.delete(`https://back-end-slim-uth-production.up.railway.app/estudiante/${id}`).subscribe({
+        this.http.delete(`https://back-end-slim-uth-production.up.railway.app/estudiante/${id}/${usuario_id}`).subscribe({
           next: () => {
             Swal.fire({
               title: "Eliminado!",

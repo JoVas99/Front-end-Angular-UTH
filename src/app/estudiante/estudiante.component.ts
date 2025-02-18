@@ -67,7 +67,7 @@ export class EstudianteComponent {
               showConfirmButton: false,
               timer: 1500
             });
-            this.router.navigate(['/listar-estudiantes']);
+            this.router.navigate(['/listar-estudiante']);
           },
           error: (error) =>
             Swal.fire({
