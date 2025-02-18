@@ -17,6 +17,7 @@ export class EstudianteComponent {
 
   formulario:FormGroup;
   estudianteId:number | null = null;
+  usuarioId: number | null =  null;
 
   constructor(private http:HttpClient, private router: Router, private route: ActivatedRoute){
     this.formulario = new FormGroup({
@@ -29,6 +30,7 @@ export class EstudianteComponent {
 
   ngOnInit(): void {
     this.estudianteId = Number(this.route.snapshot.paramMap.get('id'));
+    this.usuarioId = Number(this.route.snapshot.paramMap.get('usuario_id'));
 
     if (this.estudianteId) {
       // Si hay un ID en la URL, cargar datos para edición
@@ -52,9 +54,10 @@ export class EstudianteComponent {
     if(this.formulario.valid){
       if(this.estudianteId)
       {
+        const datosConId = { ...this.formulario.value, usuario_id: Number(this.usuarioId) };
         // Actualizar estudiante
         this.http
-        .put(`https://back-end-slim-uth-production.up.railway.app/estudiante/${this.estudianteId}`, this.formulario.value)
+        .put(`https://back-end-slim-uth-production.up.railway.app/estudiante/${this.estudianteId}`, datosConId)
         .subscribe({
           next: () => {
             Swal.fire({

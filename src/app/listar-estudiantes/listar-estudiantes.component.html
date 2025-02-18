@@ -23,7 +23,7 @@
         <td>{{ estudiante.edad }}</td>
         <td>{{ estudiante.genero }}</td>
         <td>
-          <button *ngIf="userRole === 'admin' || userRole === 'director' || userRole === 'maestro'" class="btn btn-primary" (click)="editarEstudiante(estudiante.id)">
+          <button *ngIf="userRole === 'admin' || userRole === 'director' || userRole === 'maestro'" class="btn btn-primary" (click)="editarEstudiante(estudiante.id,estudiante.usuario_id)">
             ✏️ Editar
           </button>
           <button *ngIf="userRole === 'admin' || userRole === 'director' || userRole === 'maestro'" class="btn btn-danger" (click)="eliminarEstudiante(estudiante.id)">

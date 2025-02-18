@@ -36,10 +36,6 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     this.formData = history.state.formData;
     this.userRole = this.authService.getUserRole();
-    // this.formulario.patchValue({
-    //   nombre_usuario:this.formData.nombre.toLowerCase()+'.'+this.formData.apellido.toLowerCase(),
-    // })
-    // console.log('Datos recibidos:', this.formData)
   }
 
   onSubmit(){
@@ -53,9 +49,7 @@ export class RegisterComponent implements OnInit {
           //enviar los datos del usuario y encadenar la segunda
           //peticion
           this.enviarDatos(this.formulario.value);
-          console.log(this.formulario.value);
         }else{
-          console.log("1");
           Swal.fire({
             icon: 'error',
             title: 'Acceso denegado',
@@ -64,7 +58,6 @@ export class RegisterComponent implements OnInit {
         }
       }
       else{
-        console.log("2");
         Swal.fire({
           icon: 'error',
           title: 'Error',
@@ -73,7 +66,6 @@ export class RegisterComponent implements OnInit {
       }
     }
     else{
-      console.log("3");
       Swal.fire({
         icon: 'error',
         title: 'Formulario inválido',
@@ -104,7 +96,6 @@ export class RegisterComponent implements OnInit {
 
       },
       error: (error) => {
-        console.log("4");
         Swal.fire({
           position: "top",
           icon: "error",
@@ -118,6 +109,14 @@ export class RegisterComponent implements OnInit {
 
   // Método para enviar formData y el ID del usuario (segunda petición)
   enviarFormData(usuarioId: number, formData: any) {
+    if (!formData || typeof formData !== 'object') {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error en el registro',
+        text: 'Los datos del formulario son inválidos.',
+      });
+      return;
+    }
   const datosConId = { ...formData, usuario_id: Number(usuarioId) };
 
     this.http.post('https://back-end-slim-uth-production.up.railway.app/estudiante', datosConId).subscribe({
@@ -131,8 +130,6 @@ export class RegisterComponent implements OnInit {
         });
       },
       error: (error) => {
-        console.log(datosConId);
-        console.log(error.error.message);
         Swal.fire({
           position: "top",
           icon: "error",

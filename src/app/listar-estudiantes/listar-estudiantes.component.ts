@@ -38,8 +38,8 @@ export class ListarEstudiantesComponent implements OnInit {
   }
 
   // Redirigir al formulario de edición con el ID del estudiante
-  editarEstudiante(id: number) {
-    this.router.navigate(['/editar-estudiante', id]);
+  editarEstudiante(id: number, usuario_id: number) {
+    this.router.navigate(['/editar-estudiante', id, usuario_id]);
   }
 
   // Eliminar estudiante con confirmación
