@@ -29,6 +29,7 @@ export class LoginComponent {
     })
   }
 
+  //Si el formulario es valido enviamos para hacer login en la API REST
   onSubmit(){
     if(this.formulario.valid){
 
@@ -51,17 +52,12 @@ export class LoginComponent {
     }
   }
 
-
+  //Hacemos el login y agregamos en el localstorage el token
   enviarDatos(data: any) {
     this.http.post<LoginResponse>('https://back-end-slim-uth-production.up.railway.app/login', data).subscribe({
       next: (response: LoginResponse) => {
         const token = response.token;
-        // const jwt_decode = require('jwt-decode');
-        // const decoded = jwt_decode(token);
-        // const helper = new JwtHelperService();
-        // const decodedToken = helper.decodeToken(token);
         localStorage.setItem('token', token);
-        // console.log(decodedToken);
         // Mostrar mensaje de éxito
         Swal.fire({
           position: "top-end",

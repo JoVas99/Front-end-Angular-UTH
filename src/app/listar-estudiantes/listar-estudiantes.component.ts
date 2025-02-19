@@ -11,6 +11,8 @@ import Swal from 'sweetalert2';
   templateUrl: './listar-estudiantes.component.html',
   styleUrl: './listar-estudiantes.component.css'
 })
+
+
 export class ListarEstudiantesComponent implements OnInit {
   estudiantes: any[] = [];
   userRole: string | null = null;
@@ -76,6 +78,7 @@ export class ListarEstudiantesComponent implements OnInit {
     });
   }
 
+  //redirigir al componente para crear un estudiante
   crearEstudiante(){
     this.router.navigate(['/crear-estudiante']);
   }

@@ -6,6 +6,8 @@ import { AuthService } from './auth.service';
 @Injectable({
   providedIn: 'root'
 })
+
+//el AuthIncerceptorService se agrega en el app.config.ts
 export class AuthInterceptorService implements HttpInterceptor {
   constructor(private authService: AuthService) {}
 

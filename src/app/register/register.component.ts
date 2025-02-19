@@ -38,6 +38,8 @@ export class RegisterComponent implements OnInit {
     this.userRole = this.authService.getUserRole();
   }
 
+  //el formulario envia primero los datos del usuario para obtener el id
+  //luego lo agregamos a la solicitud del estudiante y creamos el estudiante
   onSubmit(){
     if(this.formulario.valid){
       if(this.formulario.get('password')?.value === this.formulario.get('repetir_password')?.value) {
@@ -85,7 +87,6 @@ export class RegisterComponent implements OnInit {
   }
 
   enviarDatos(data: any) {
-    console.log(data)
     this.http.post<UsuarioResponse>('https://back-end-slim-uth-production.up.railway.app/register', data).subscribe({
       next: (response: UsuarioResponse) => {
 

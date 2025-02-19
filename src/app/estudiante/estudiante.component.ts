@@ -52,8 +52,10 @@ export class EstudianteComponent {
 
   onSubmit(){
     if(this.formulario.valid){
+      //Si el estudiante_id existe actualiza y si redirige los datos para crear el usuario de tipo estudiante
       if(this.estudianteId)
       {
+        //Agregando a los datos el usuario_id para enviar la peticion completa de actualizar
         const datosConId = { ...this.formulario.value, usuario_id: Number(this.usuarioId) };
         // Actualizar estudiante
         this.http
@@ -82,7 +84,6 @@ export class EstudianteComponent {
       else
       {
         this.router.navigate(['/register'],{ state:{formData:this.formulario.value } });
-        // console.log('Formulario válido:', this.formulario.value);
       }
     }
     else{
