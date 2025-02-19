@@ -10,7 +10,7 @@ export const routes: Routes = [
   { path:'register',component: RegisterComponent, canActivate:[authGuard], data: {roles:['admin','maestro','director']} },
   { path:'crear-estudiante',component: EstudianteComponent, canActivate:[authGuard], data:{roles:['admin','director']} },
   { path:'editar-estudiante/:id/:usuario_id',component: EstudianteComponent, canActivate:[authGuard], data:{roles:['admin','director']} },
-  { path:'listar-estudiante',component: ListarEstudiantesComponent, canActivate:[authGuard], data:{roles:['admin','director']} },
+  { path:'listar-estudiante',component: ListarEstudiantesComponent, canActivate:[authGuard], data:{roles:['admin','director','estudiante','maestro']} },
   { path:'login',component: LoginComponent },
   { path: 'forbidden', component: ForbiddenComponent },
   { path: '**', redirectTo: '/login', pathMatch: 'full' }

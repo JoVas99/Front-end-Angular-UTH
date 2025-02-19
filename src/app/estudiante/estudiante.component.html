@@ -46,7 +46,7 @@
               <option value="" selected>Abra este menu de selección</option>
               <option value="masculino">Masculino</option>
               <option value="femenino">Femenino</option>
-              <option value="otro">Otro</option>
+              <!-- <option value="otro">Otro</option> -->
             </select>
             <div *ngIf="genero?.invalid && (genero?.dirty || genero?.touched)">
               <small class="badge text-bg-danger" *ngIf="genero?.errors?.['required']">El genero es obligatorio</small>

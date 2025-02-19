@@ -45,9 +45,9 @@
           <label class="form-label" for="rol">Rol:</label>
           <select class="form-select" id="rol" formControlName="rol" required>
             <option value="" disabled selected>Seleccione un rol</option>
-            <option value="admin" *ngIf="userRole === 'admin'">Administrador</option>
+            <!-- <option value="admin" *ngIf="userRole === 'admin'">Administrador</option>
             <option value="director" *ngIf="userRole === 'admin' || userRole === 'director'">Director</option>
-            <option value="maestro" *ngIf="userRole === 'admin' || userRole === 'director'">Maestro</option>
+            <option value="maestro" *ngIf="userRole === 'admin' || userRole === 'director'">Maestro</option> -->
             <option value="estudiante" *ngIf="userRole === 'admin' || userRole === 'director'">Estudiante</option>
           </select>
           <div *ngIf="rol?.invalid && rol?.touched">
