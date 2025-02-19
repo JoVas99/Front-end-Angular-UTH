@@ -85,6 +85,7 @@ export class RegisterComponent implements OnInit {
   }
 
   enviarDatos(data: any) {
+    console.log(data)
     this.http.post<UsuarioResponse>('https://back-end-slim-uth-production.up.railway.app/register', data).subscribe({
       next: (response: UsuarioResponse) => {
 
