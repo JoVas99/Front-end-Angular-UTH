@@ -9,10 +9,12 @@
 ##Instalación
 1. Clona el siguiente repositorio:
 ``` sh
-git clone 
+git clone https://github.com/JoVas99/Front-end-Angular-UTH.git
 ```
 2. Instala las dependencias:
+```node.js
 npm install
+```
 
 ## Dependencias
 - jwt-decode
