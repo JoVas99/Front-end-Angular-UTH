@@ -6,7 +6,7 @@
  - Angular 19.1.6
  - Node.js
 
-##Instalación
+## Instalación
 1. Clona el siguiente repositorio:
 ``` sh
 git clone https://github.com/JoVas99/Front-end-Angular-UTH.git
