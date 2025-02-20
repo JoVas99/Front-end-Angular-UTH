@@ -19,3 +19,18 @@ npm install
 ## Dependencias
 - jwt-decode
 - sweetalert
+
+## Implementación en Netlify
+
+1. Crear una cuenta en Netlify, se puede usar la de GitHub.
+2. Antes de subir tu proyecto ejecuta el siguiente comando:
+```sh
+ng build --configuration=production
+```
+3. Conectar el repositorio a Netlify y configurar los comando para compilar:
+```sh
+ng build --configuration=production
+```
+```sh
+dist/nombre-del-proyecto
+```
